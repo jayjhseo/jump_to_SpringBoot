@@ -1,5 +1,6 @@
-package com.std.sbb;
+package com.std.sbb.answer;
 
+import com.std.sbb.question.Question;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,5 +20,6 @@ public class Answer {
 
     private LocalDateTime createDate;
 
-//    private Question question;
+    @ManyToOne
+    private Question question;
 }
