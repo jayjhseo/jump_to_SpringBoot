@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="ko" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>sbb</title>
@@ -14,7 +14,9 @@
     </thead>
     <tbody>
     <tr th:each="question : ${questionList}">
-        <td th:text = "${question.subject}"></td>
+        <td>
+            <a th:href="@{|/question/detail/${question.id}|}" th:text="${question.subject}"></a>
+        </td>
         <td th:text = "${question.createDate}"></td>
     </tr>
     </tbody>
