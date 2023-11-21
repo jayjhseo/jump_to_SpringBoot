@@ -65,11 +65,11 @@ class SbbApplicationTests {
 	@Test
 	@DisplayName("삭제하기")
 	void test004() {
-		Optional<Question> oq = this.questionRepository.findById(1);
+		Optional<Question> oq = this.questionRepository.findById(6);
 		assertTrue(oq.isPresent());
 		Question q = oq.get();
 		this.questionRepository.delete(q);
-		assertEquals(1, this.questionRepository.count());
+		assertEquals(3, this.questionRepository.count());
 	}
 	@Test
 	@DisplayName("답변데이터 생성 및 저장")
