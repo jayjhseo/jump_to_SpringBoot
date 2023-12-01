@@ -4,6 +4,7 @@ import com.std.sbb.answer.Answer;
 import com.std.sbb.answer.AnswerRepository;
 import com.std.sbb.question.Question;
 import com.std.sbb.question.QuestionRepository;
+import com.std.sbb.question.QuestionService;
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -27,6 +28,8 @@ class SbbApplicationTests {
 	private QuestionRepository questionRepository;
 	@Autowired
 	private AnswerRepository answerRepository;
+	@Autowired
+	private QuestionService questionService;
 	@Test
 	@DisplayName("create")
 	void test001() {
@@ -283,5 +286,14 @@ class SbbApplicationTests {
 		this.answerRepository.save(a);
 		this.answerRepository.save(a1);
 		this.answerRepository.save(a2);
+	}
+	@Test
+	@DisplayName("테스트 데이터 생성")
+	void test023() {
+		for (int i = 1; i <= 300; i++) {
+			String subject = String.format("테스트 데이터입니다:[%03d]", i);
+			String content = "내용무";
+			this.questionService.create(subject, content, null);
+		}
 	}
 }
